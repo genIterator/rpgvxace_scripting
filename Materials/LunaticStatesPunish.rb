@@ -265,9 +265,25 @@ class Game_BattlerBase
       end
       state_origin.mp += dmg
       
+    #----------------------------------------------------------------------
+    # Punish Effect No.9: Death
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # Best used with leave effect. The user simply dies.
+    # 
+    # Recommended notetag:
+    #   <leave effect: doom>
+    #----------------------------------------------------------------------  
     when /DOOM/i 
       return user.die()
-      
+    #----------------------------------------------------------------------
+    # Punish Effect No.10: Remove State
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # Removes the given state
+    # 
+    # 
+    # Recommended notetag:
+    #   <apply effect: rmState 2>
+    #----------------------------------------------------------------------   
     when /RMSTATE[ ](\d+)/i
       return user.remove_state($1.to_i)
       
